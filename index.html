@@ -446,46 +446,38 @@ Whether it's strategizing on a football field or exploring new creative mechanic
     </form>
 
     <script>
-      document.getElementById("contactForm").addEventListener("submit", async function(e) 
-      { e.preventDefault();
-        const token = grecaptcha.getResponse();
-        if (!token) {
-            alert("Please complete the captcha!");
-            return;
-        }
+      document.getElementById("contactForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
 
-        const data = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            message: document.getElementById("message").value,
-            recaptcha: token
-        };
+      const token = grecaptcha.getResponse();
 
-        try {
-            const res = await fetch("https://abhinavkanoongo.pythonanywhere.com/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
+      if (!token) {
+          alert("Please complete captcha");
+          return;
+      }
 
-            const result = await res.json();
+      const data = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value,
+          recaptcha: token
+      };
 
-            console.log(result);
+      const res = await fetch("https://abhinavkanoongo.pythonanywhere.com/contact", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(data)
+      });
 
-            if (result.status === "success") {
-                alert("Message sent successfully ✅");
-                grecaptcha.reset();   // reset captcha
-                document.getElementById("contactForm").reset();
-            } else {
-                alert(result.error || "Something went wrong");
-            }
+      const result = await res.json();
 
-            } catch (err) {
-                console.error(err);
-                alert("Server connection failed ❌");
-            }
+      if (result.status === "success") {
+          alert("Message sent successfully ✅");
+          grecaptcha.reset(); // 🔥 important
+          } else {
+              alert("Error: " + result.error);
+              grecaptcha.reset();
+          }
       });
       </script>
   </section>
