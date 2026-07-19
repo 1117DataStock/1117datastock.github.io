@@ -36,7 +36,7 @@
       height: 50px;
       width: 50px;
       border-radius: 10px;
-      background: url("../images/favicon.png") no-repeat center center / contain;
+      background: url("images/favicon.png") no-repeat center center / contain;
     }
 
     .name {
@@ -89,8 +89,24 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: url('../images/GameDevBackground.jpg') no-repeat center center / cover;
+      background: url('images/GameDevBackground.jpg') no-repeat center center / cover;
       color: #fff;
+    }
+
+    @media (max-width: 700px) {
+      .hero{
+        background-size: contain;
+        background-color: black;
+        height: 50vh; 
+      }
+
+      @media (max-width: 400px) {
+      .hero{
+        background-size: contain;
+        background-color: black;
+        height: 300px;
+        }
+      }
     }
 
     .hero h2 {
@@ -120,18 +136,18 @@
     }
 
     .project-btn {
-      background-color: #ffffff;
-      color: #a020f0;
+      background-color: #a020f0;
+      color:  white;
       padding: 16px 36px;
-      border-radius: 10px;
+      border-radius: 17px;
       font-weight: bold;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       border: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       max-width: 90%;
-      min-width: 280px;
+      min-width: 300px;
       text-align: center;
       white-space: normal;
       word-wrap: break-word;
@@ -202,13 +218,19 @@
       text-align: center;
     }
 
+    .project-description {
+      font-size: 1.1rem;
+      max-width: 900px;
+      line-height: 1.6;
+    }
+
     .bg-video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       z-index: -1;
       opacity: 0.5;
     }
@@ -348,27 +370,77 @@
     }
     /* FIX FOR STICKY HEADER SCROLLING */
     #about,
+    #projects,
     #bouncy-ball,
     #slimy-spaceship,
     #vr-museum,
     #contact {
         scroll-margin-top: 90px;   /* This pushes the section down by 100px so the heading sits perfectly under the header */
     }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 10px 10px;
+      }
+
+      .name{
+        font-size: 0.8rem;
+      }
+
+      nav a{
+        font-weight: 100;
+      }
+
+      nav ul{
+        gap:10px;
+      }
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+      .hero p {
+        font-size: 0.8rem;
+      }
+      .cta {
+        padding: 6px 18px;
+        font-size: 0.8rem;
+      }
+      .project-btn {
+        padding: 6px 18px;
+        font-size: 0.8rem;
+        min-width: 200px;
+      }
+      .project-section{
+        height: 300px;
+      }
+      .project-description {
+        font-size: 0.8rem;
+        max-width: 600px;
+      }
+    }
+    @media (max-width: 1400px) and (min-width: 768px) {
+      .project-section{
+        height: 600px;
+      }
+    }
+    @media (max-width: 768px) and (min-width: 600px){
+      .project-section{
+        height: 400px;
+      }
+    }
   </style>
 </head>
 <body>
-
   <header>
     <div class="header-left">
       <div class="logo-img"></div>
-      <div class="name">Abhinav Kanoongo</div>
+      <div class="name">ABHINAV KANOONGO</div>
     </div>
     <nav>
       <ul>
-        <li><a href="#bouncy-ball">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="javascript:void(0);" title="Hold to change smoke color"><div class="color-toggle-box"></div></a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#" title="Hold to change smoke color"><div class="color-toggle-box"></div></a></li>
       </ul>
     </nav>
   </header>
@@ -383,7 +455,7 @@
 
   <!-- ✅ UPDATED ABOUT SECTION -->
   <section id="about">
-    <h2>About Me</h2>
+    <h2>ABOUT ME</h2>
     <div class="about-container">
       <div class="about-text">
         <p>
@@ -396,43 +468,46 @@ and managing real-time controller interaction logic.
         </p>
       </div>
       <div class="about-image">
-        <img src="../images/DisplayPicture1.png" alt="Abhinav Kanoongo" />
+        <img src="images/DisplayPicture1.png" alt="Abhinav Kanoongo" />
       </div>
     </div>
   </section>
 
+  <section id="projects">
+    <h2>PROJECTS</h2>
   <section id="bouncy-ball" class="project-section">
     <video autoplay muted loop class="bg-video">
-      <source src="../Videos/LaunchVideo Haaks.mp4" type="video/mp4">
+      <source src="Videos/BB3DR_Clip.mp4" type="video/mp4">
     </video>
     <div class="overlay">
-      <button class="project-btn" onclick="window.open('https://your-project-link.com/bouncy-ball', '_blank')">Bouncy Ball 3D Reborn</button>
-      <p>Fantasy‑themed reimagining of the classic game. Features immersive visuals, enemy obstacles, and a story‑driven progression.</p>
+      <button class="project-btn" onclick="window.open('https://github.com/1117DataStock/Slimy-Spaceship-2D', '_blank')">BOUNCY BALL 3D REBORN</button>
+      <p class="project-description">Fantasy‑themed reimagining of the classic game. Features immersive visuals, enemy obstacles, and a story‑driven progression.</p>
     </div>
   </section>
 
   <section id="slimy-spaceship" class="project-section">
     <video autoplay muted loop class="bg-video">
-      <source src="../Videos/SS2D_Clip.mp4" type="video/mp4">
+      <source src="Videos/SS2D_Clip.mp4" type="video/mp4">
     </video>
     <div class="overlay">
-      <button class="project-btn" onclick="window.open('https://your-project-link.com/slimy-spaceship', '_blank')">Slimy Spaceship 2D</button>
-      <p>Endless survival space game with tight controls, collision animations, and responsive scoring UI.</p>
+      <button class="project-btn" onclick="window.open('https://github.com/1117DataStock/Slimy-Spaceship-2D', '_blank')">SLIMY SPACESHIP 2D</button>
+      <p class="project-description">Endless survival space game with tight controls, collision animations, and responsive scoring UI.</p>
     </div>
   </section>
 
   <section id="vr-museum" class="project-section">
     <video autoplay muted loop class="bg-video">
-      <source src="../Videos/vr-museum.mp4" type="video/mp4">
+      <source src="Videos/VRMT_Clip.mp4" type="video/mp4">
     </video>
     <div class="overlay">
-      <button class="project-btn" onclick="window.open('https://your-project-link.com/vr-museum', '_blank')">VR Museum Tour</button>
-      <p>Interactive virtual museum experience using VR with detailed artifacts and smooth guided tour system.</p>
+      <button class="project-btn" onclick="window.open('https://github.com/1117DataStock/Slimy-Spaceship-2D', '_blank')">VR MUSEUM TOUR</button>
+      <p class="project-description">Interactive virtual museum experience using VR with detailed artifacts and smooth guided tour system.</p>
     </div>
+  </section>
   </section>
 
   <section id="contact">
-    <h2>Contact Me</h2>
+    <h2>CONTACT ME</h2>
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <form id="contactForm">
@@ -440,30 +515,48 @@ and managing real-time controller interaction logic.
       <input type="email" id="email" name="email" placeholder="Your Email" required />
       <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
       <!-- Google reCAPTCHA -->
-      <div class="g-recaptcha" data-sitekey="6LcsvG0sAAAAALe85hN_GHCiD5r5fxn8y-AasWW0"></div>
+      <div style="text-align: -webkit-center;">
+        <div class="g-recaptcha" data-sitekey="6LcsvG0sAAAAALe85hN_GHCiD5r5fxn8y-AasWW0"></div>
+      </div>
       <button type="submit">Send Message</button>
     </form>
 
     <script>
       document.getElementById("contactForm").addEventListener("submit", async function(e) {
-          e.preventDefault();
-      
-          const token = grecaptcha.getResponse();
-      
-          const data = {
-              name: document.getElementById("name").value,
-              email: document.getElementById("email").value,
-              message: document.getElementById("message").value,
-              recaptcha: token
-          };
-      
-          const res = await fetch("/contact", {
+      e.preventDefault();
+
+      const token = grecaptcha.getResponse();
+
+      if (!token) {
+          alert("Please complete captcha");
+          return;
+      }
+
+      const data = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value,
+          recaptcha: token
+      };
+      try {
+          const res = await fetch("https://abhinavkanoongo.pythonanywhere.com/contact", {
               method: "POST",
               headers: {"Content-Type": "application/json"},
               body: JSON.stringify(data)
           });
-      
-          alert(await res.text());
+          if (!res.ok) {
+              throw new Error("Server error");
+          }
+          const result = await res.json();
+          if (result.status === "success") {
+              alert("Message sent successfully ✅");
+            } else {
+                alert("Error: " + result.error);
+            }
+          } catch (err) {
+              alert("Server connection failed ⚠️");
+          }
+          grecaptcha.reset();
       });
       </script>
   </section>
@@ -477,10 +570,10 @@ and managing real-time controller interaction logic.
         <img src="../images/linkedin.png" alt="LinkedIn">
       </a>
       <a href="https://github.com/1117DataStock" target="_blank">
-        <img src="../images/github.png" alt="GitHub">
+        <img src="images/github.png" alt="GitHub">
       </a>
       <a href="https://www.instagram.com/1117data_stock/" target="_blank">
-        <img src="../images/instagram.png" alt="Instagram">
+        <img src="images/instagram.png" alt="Instagram">
       </a>
     </div>
   </footer>
